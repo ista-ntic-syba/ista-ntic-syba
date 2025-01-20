@@ -105,16 +105,15 @@ export default function EventHero() {
           }}
           className="absolute inset-0"
         >
-          {/* Background Image with Lazy Loading */}
           <LazyLoadImage
             src={currentEvent.image}
-            placeholderSrc={currentEvent.placeholder} // Low-res placeholder
-            effect="blur" // Blur effect while loading
+            placeholderSrc={currentEvent.placeholder}
+            effect="blur"
             wrapperClassName="absolute inset-0"
             className="w-full h-full object-cover"
             alt={currentEvent.title}
           />
-          <div className="absolute inset-0 bg-black/60" /> {/* Darker overlay */}
+          <div className="absolute inset-0 bg-black/60" />
 
           {/* Content */}
           <div className="relative h-full flex items-center justify-center text-center px-4">
@@ -135,7 +134,7 @@ export default function EventHero() {
                   {currentEvent.description}
                 </p>
                 <button className="mt-8 px-8 py-3 bg-white text-blue-900 rounded-lg font-medium hover:bg-gray-100 transition-colors transform hover:scale-105 duration-200">
-                  Learn More
+                  Lire plus
                 </button>
               </motion.div>
             </div>
