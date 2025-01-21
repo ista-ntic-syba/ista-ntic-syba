@@ -14,7 +14,7 @@ export default function Home({ onNavigate }) {
     <div className="min-h-screen bg-white">
       {/* <TopBar /> */}
       <Navigation onNavigate={onNavigate} />
-      <Hero />
+      <Hero onNavigate={onNavigate} />
       <div className="my-24" />
       <QuickLinks onNavigate={onNavigate} />
       <Filieres onNavigate={onNavigate} />

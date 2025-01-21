@@ -78,7 +78,10 @@ export default function Navigation({ onNavigate }) {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             <motion.a
-              onClick={() => onNavigate("home")}
+              onClick={() => {
+                onNavigate("home")
+                window.scrollTo(0, 0)
+              }}
               className="text-gray-600 hover:text-[#003366] cursor-pointer relative"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -93,7 +96,10 @@ export default function Navigation({ onNavigate }) {
               </span>
             </motion.a>
             <motion.a
-              onClick={() => onNavigate("actualite")}
+              onClick={() => {
+                onNavigate("actualite")
+                window.scrollTo(0, 0)
+              }}
               className="text-gray-600 hover:text-[#003366] cursor-pointer relative"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -142,7 +148,10 @@ export default function Navigation({ onNavigate }) {
                     {menuItems.formation.map((item, index) => (
                       <motion.a
                         key={item}
-                        onClick={() => onNavigate("formationDetail", { formation: item })}
+                        onClick={() => {
+                          onNavigate("formationDetail", { formation: item })
+                          window.scrollTo(0, 0)
+                        }}
                         className="block px-4 py-2 text-gray-600 hover:bg-gray-50 hover:text-[#003366] cursor-pointer"
                         whileHover={{ x: 6 }}
                         initial={{ opacity: 0, x: -20 }}
@@ -191,7 +200,10 @@ export default function Navigation({ onNavigate }) {
                     {menuItems.clubs.map((item, index) => (
                       <motion.a
                         key={item}
-                        onClick={() => onNavigate("clubDetail", { club: item })}
+                        onClick={() => {
+                          onNavigate("clubDetail", { club: item })
+                          window.scrollTo(0, 0)
+                        }}
                         className="block px-4 py-2 text-gray-600 hover:bg-gray-50 hover:text-[#003366] cursor-pointer"
                         whileHover={{ x: 6 }}
                         initial={{ opacity: 0, x: -20 }}
@@ -207,7 +219,10 @@ export default function Navigation({ onNavigate }) {
             </div>
 
             <motion.a
-              onClick={() => onNavigate("about")}
+              onClick={() => {
+                onNavigate("about")
+                window.scrollTo(0, 0)
+              }}
               className="text-gray-600 hover:text-[#003366] cursor-pointer relative"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -256,7 +271,10 @@ export default function Navigation({ onNavigate }) {
             >
               <div className="py-4 border-t space-y-4">
                 <motion.a
-                  onClick={() => onNavigate("home")}
+                  onClick={() => {
+                    onNavigate("home")
+                    window.scrollTo(0, 0)
+                  }}
                   className="block text-gray-600 hover:text-[#003366] cursor-pointer relative"
                   whileHover={{ x: 6 }}
                 >
@@ -270,7 +288,10 @@ export default function Navigation({ onNavigate }) {
                   </span>
                 </motion.a>
                 <motion.a
-                  onClick={() => onNavigate("actualite")}
+                  onClick={() => {
+                    onNavigate("actualite")
+                    window.scrollTo(0, 0)
+                  }}
                   className="block text-gray-600 hover:text-[#003366] cursor-pointer relative"
                   whileHover={{ x: 6 }}
                 >
@@ -303,7 +324,10 @@ export default function Navigation({ onNavigate }) {
                     {menuItems.formation.map((item, index) => (
                       <motion.a
                         key={item}
-                        onClick={() => onNavigate("formationDetail", { formation: item })}
+                        onClick={() => {
+                          onNavigate("formationDetail", { formation: item })
+                          window.scrollTo(0, 0)
+                        }}
                         className="block text-gray-500 hover:text-[#003366] cursor-pointer"
                         whileHover={{ x: 6 }}
                         initial={{ opacity: 0, x: -20 }}
@@ -335,7 +359,10 @@ export default function Navigation({ onNavigate }) {
                     {menuItems.clubs.map((item, index) => (
                       <motion.a
                         key={item}
-                        onClick={() => onNavigate("clubDetail", { club: item })}
+                        onClick={() => {
+                          onNavigate("clubDetail", { club: item })
+                          window.scrollTo(0, 0)
+                        }}
                         className="block text-gray-500 hover:text-[#003366] cursor-pointer"
                         whileHover={{ x: 6 }}
                         initial={{ opacity: 0, x: -20 }}
@@ -349,7 +376,10 @@ export default function Navigation({ onNavigate }) {
                 </div>
 
                 <motion.a
-                  onClick={() => onNavigate("about")}
+                  onClick={() => {
+                    onNavigate("about")
+                    window.scrollTo(0, 0)
+                  }}
                   className="block text-gray-600 hover:text-[#003366] cursor-pointer relative"
                   whileHover={{ x: 6 }}
                 >

@@ -162,6 +162,7 @@ const formationDetails = {
   },
 }
 
+
 export default function FormationDetail({ formation, onNavigate }) {
   const [selectedOption, setSelectedOption] = useState(null);
   const details = formationDetails[formation];
@@ -169,38 +170,42 @@ export default function FormationDetail({ formation, onNavigate }) {
   return (
     <div className="min-h-screen bg-gradient-to-b from-white to-blue-50">
       <Navigation onNavigate={onNavigate} />
-      <main className="container mx-auto px-4 py-16">
+      <main className="container mx-auto px-4 py-8 md:py-16">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           className="max-w-6xl mx-auto"
         >
-          <h1 className="text-4xl font-bold text-blue-900 mb-8">{details.title}</h1>
+          <h1 className="text-2xl md:text-4xl font-bold text-blue-900 mb-6 md:mb-8">{details.title}</h1>
 
           {/* First Year Section */}
           <motion.section
-            className="bg-white rounded-xl shadow-lg p-8 mb-8"
+            className="bg-white rounded-xl shadow-lg p-4 md:p-8 mb-6 md:mb-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h2 className="text-2xl font-semibold text-blue-800 mb-6">{details.firstYear.title}</h2>
+            <h2 className="text-xl md:text-2xl font-semibold text-blue-800 mb-4 md:mb-6">
+              {details.firstYear.title}
+            </h2>
 
             {/* General Modules */}
-            <div className="mb-8">
-              <h3 className="text-xl font-semibold text-blue-700 mb-4">Modules Généraux</h3>
-              <div className="grid grid-cols-2 gap-4">
+            <div className="mb-6 md:mb-8">
+              <h3 className="text-lg md:text-xl font-semibold text-blue-700 mb-3 md:mb-4">
+                Modules Généraux
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                 {details.firstYear.generalModules.map((module, index) => (
                   <motion.div
                     key={module.code}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 * index }}
-                    className="bg-blue-50 hover:bg-blue-100 transition-colors rounded-lg p-4"
+                    className="bg-blue-50 hover:bg-blue-100 transition-colors rounded-lg p-3 md:p-4"
                   >
                     <p className="text-sm font-semibold text-blue-600">{module.code}</p>
-                    <p className="text-gray-700">{module.name}</p>
+                    <p className="text-sm md:text-base text-gray-700">{module.name}</p>
                   </motion.div>
                 ))}
               </div>
@@ -208,18 +213,20 @@ export default function FormationDetail({ formation, onNavigate }) {
 
             {/* Specialized Modules */}
             <div>
-              <h3 className="text-xl font-semibold text-blue-700 mb-4">Modules Spécialisés</h3>
-              <div className="grid grid-cols-2 gap-4">
+              <h3 className="text-lg md:text-xl font-semibold text-blue-700 mb-3 md:mb-4">
+                Modules Spécialisés
+              </h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                 {details.firstYear.specializedModules.map((module, index) => (
                   <motion.div
                     key={module.code}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 * index }}
-                    className="bg-blue-50 hover:bg-blue-100 transition-colors rounded-lg p-4"
+                    className="bg-blue-50 hover:bg-blue-100 transition-colors rounded-lg p-3 md:p-4"
                   >
                     <p className="text-sm font-semibold text-blue-600">{module.code}</p>
-                    <p className="text-gray-700">{module.name}</p>
+                    <p className="text-sm md:text-base text-gray-700">{module.name}</p>
                   </motion.div>
                 ))}
               </div>
@@ -228,20 +235,24 @@ export default function FormationDetail({ formation, onNavigate }) {
 
           {/* Options Section */}
           <motion.section
-            className="bg-white rounded-xl shadow-lg p-8"
+            className="bg-white rounded-xl shadow-lg p-4 md:p-8"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <h2 className="text-2xl font-semibold text-blue-800 mb-6">Options de Spécialisation</h2>
-            <div className="space-y-6">
+            <h2 className="text-xl md:text-2xl font-semibold text-blue-800 mb-4 md:mb-6">
+              Options de Spécialisation
+            </h2>
+            <div className="space-y-4 md:space-y-6">
               {details.options.map((option, index) => (
                 <div key={option.title} className="border rounded-lg overflow-hidden">
                   <button
                     onClick={() => setSelectedOption(selectedOption === index ? null : index)}
-                    className="w-full flex justify-between items-center p-4 bg-blue-50 hover:bg-blue-100 transition-colors"
+                    className="w-full flex justify-between items-center p-3 md:p-4 bg-blue-50 hover:bg-blue-100 transition-colors"
                   >
-                    <span className="text-lg font-semibold text-blue-700">{option.title}</span>
+                    <span className="text-base md:text-lg font-semibold text-blue-700">
+                      {option.title}
+                    </span>
                     <ChevronDown
                       className={`w-5 h-5 text-blue-600 transform transition-transform ${
                         selectedOption === index ? "rotate-180" : ""
@@ -253,26 +264,28 @@ export default function FormationDetail({ formation, onNavigate }) {
                       initial={{ opacity: 0, height: 0 }}
                       animate={{ opacity: 1, height: "auto" }}
                       exit={{ opacity: 0, height: 0 }}
-                      className="p-4"
+                      className="p-3 md:p-4"
                     >
-                      <div className="grid grid-cols-2 gap-4">
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                         {option.modules.map((module) => (
                           <div 
                             key={module.code} 
-                            className="bg-blue-50 hover:bg-blue-100 transition-colors rounded-lg p-4 flex flex-col"
+                            className="bg-blue-50 hover:bg-blue-100 transition-colors rounded-lg p-3 md:p-4"
                           >
-                            <div className="flex justify-between items-start mb-2">
-                              <p className="text-sm font-bold text-blue-700">{module.code}</p>
-                              <div className="flex items-center space-x-4">
-                                <span className="text-sm font-bold text-blue-800">
-                                  {module.hours}h
-                                </span>
-                                <span className="text-sm font-bold text-blue-800">
-                                  Coef: {module.coef}
-                                </span>
+                            <div className="flex flex-col space-y-2">
+                              <div className="flex justify-between items-center">
+                                <p className="text-sm font-bold text-blue-700">{module.code}</p>
+                                <div className="flex items-center space-x-3">
+                                  <span className="text-sm font-bold text-blue-800">
+                                    {module.hours}h
+                                  </span>
+                                  <span className="text-sm font-bold text-blue-800">
+                                    Coef: {module.coef}
+                                  </span>
+                                </div>
                               </div>
+                              <p className="text-sm md:text-base text-gray-700">{module.name}</p>
                             </div>
-                            <p className="text-gray-700 flex-grow">{module.name}</p>
                           </div>
                         ))}
                       </div>
@@ -288,4 +301,3 @@ export default function FormationDetail({ formation, onNavigate }) {
     </div>
   );
 }
-

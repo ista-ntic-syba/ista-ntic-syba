@@ -118,7 +118,10 @@ export default function Filieres({ onNavigate }) {
                   <motion.button
                     className="flex items-center text-[#003366] font-medium group"
                     whileHover={{ x: 5 }}
-                    onClick={() => onNavigate("formationDetail", { formation: item.title })}
+                    onClick={() => {
+                      onNavigate("formationDetail", { formation: item.title })
+                      window.scrollTo(0, 0)
+                    }}
                   >
                     Lire plus
                     <motion.div
