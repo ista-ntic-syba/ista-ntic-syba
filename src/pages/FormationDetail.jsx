@@ -1,15 +1,14 @@
-"use client"
-
-import React, { useState } from "react"
-import { motion } from "framer-motion"
-import { ChevronDown } from "lucide-react"
-import Navigation from "../components/Navigation"
-import Footer from "../components/Footer"
+import React, { useState } from "react";
+import { motion } from "framer-motion";
+import { ChevronDown } from "lucide-react";
+import Navigation from "../components/Navigation";
+import Footer from "../components/Footer";
 
 const formationDetails = {
   "Développement Digital": {
     title: "Développement Digital",
-    description: "Formation axée sur la création d'applications web et mobiles modernes.",
+    description:
+      "Formation axée sur la création d'applications web et mobiles modernes.",
     firstYear: {
       title: "1ère année",
       generalModules: [
@@ -19,45 +18,104 @@ const formationDetails = {
         { code: "EGTS104", name: "Culture entrepreneuriale-Partie 1" },
         { code: "EGTS105", name: "Compétences comportementales et sociales" },
         { code: "EGTS108", name: "Entrepreneuriat-PIE 1" },
-        { code: "EGTSA106", name: "Culture et techniques avancées du numérique" },
+        {
+          code: "EGTSA106",
+          name: "Culture et techniques avancées du numérique",
+        },
       ],
       specializedModules: [
-        { code: "M101", name: "Se situer au regard du métier et de la démarche de formation" },
+        {
+          code: "M101",
+          name: "Se situer au regard du métier et de la démarche de formation",
+        },
         { code: "M102", name: "Acquérir les bases de l'algorithmique" },
         { code: "M103", name: "Programmer en Orienté Objet" },
         { code: "M104", name: "Développer des sites web statiques" },
         { code: "M105", name: "Programmer en JavaScript" },
         { code: "M106", name: "Manipuler des bases de données" },
         { code: "M107", name: "Développer des sites web dynamiques" },
-        { code: "M108", name: "S'initier à la sécurité des systèmes d'information" },
+        {
+          code: "M108",
+          name: "S'initier à la sécurité des systèmes d'information",
+        },
       ],
     },
     options: [
       {
         title: "Applications Mobiles",
         modules: [
-          { code: "M201", name: "Bases du développement Android", hours: 90, coef: 3 },
+          {
+            code: "M201",
+            name: "Bases du développement Android",
+            hours: 90,
+            coef: 3,
+          },
           { code: "M202", name: "Programmation KOTLIN", hours: 90, coef: 3 },
           { code: "M203", name: "Gestion de projet", hours: 45, coef: 1 },
-          { code: "M204", name: "Initiation aux composants et modèle d'une application Android", hours: 90, coef: 2 },
-          { code: "M205", name: "Développement des interfaces utilisateurs sous Android", hours: 90, coef: 2 },
-          { code: "M206", name: "Elaboration d'une application Android sécurisée", hours: 90, coef: 2 },
-          { code: "M207", name: "Développement des applications IOS", hours: 90, coef: 3 },
-          { code: "M208", name: "Développement multiplateforme", hours: 90, coef: 2 },
-          { code: "M209", name: "Intégration du milieu professionnel", hours: 160, coef: 2 },
+          {
+            code: "M204",
+            name: "Initiation aux composants et modèle d'une application Android",
+            hours: 90,
+            coef: 2,
+          },
+          {
+            code: "M205",
+            name: "Développement des interfaces utilisateurs sous Android",
+            hours: 90,
+            coef: 2,
+          },
+          {
+            code: "M206",
+            name: "Elaboration d'une application Android sécurisée",
+            hours: 90,
+            coef: 2,
+          },
+          {
+            code: "M207",
+            name: "Développement des applications IOS",
+            hours: 90,
+            coef: 3,
+          },
+          {
+            code: "M208",
+            name: "Développement multiplateforme",
+            hours: 90,
+            coef: 2,
+          },
+          {
+            code: "M209",
+            name: "Intégration du milieu professionnel",
+            hours: 160,
+            coef: 2,
+          },
         ],
       },
       {
         title: "Web Full Stack",
         modules: [
-          { code: "M201", name: "Préparation d'un projet web", hours: 60, coef: 1 },
+          {
+            code: "M201",
+            name: "Préparation d'un projet web",
+            hours: 60,
+            coef: 1,
+          },
           { code: "M202", name: "Approche agile", hours: 120, coef: 2 },
           { code: "M203", name: "Gestion des données", hours: 90, coef: 3 },
           { code: "M204", name: "Développement front-end", hours: 90, coef: 3 },
           { code: "M205", name: "Développement back-end", hours: 120, coef: 3 },
-          { code: "M206", name: "Création d'une application Cloud native", hours: 90, coef: 2 },
+          {
+            code: "M206",
+            name: "Création d'une application Cloud native",
+            hours: 90,
+            coef: 2,
+          },
           { code: "M207", name: "Projet de synthèse", hours: 60, coef: 2 },
-          { code: "M208", name: "Intégration du milieu professionnel", hours: 160, coef: 2 },
+          {
+            code: "M208",
+            name: "Intégration du milieu professionnel",
+            hours: 160,
+            coef: 2,
+          },
         ],
       },
     ],
@@ -75,11 +133,20 @@ const formationDetails = {
         { code: "EGTS104", name: "Culture entrepreneuriale-Partie 1" },
         { code: "EGTS105", name: "Compétences comportementales et sociales" },
         { code: "EGTS108", name: "Entrepreneuriat-PIE 1" },
-        { code: "EGTSA106", name: "Culture et techniques avancées du numérique" },
+        {
+          code: "EGTSA106",
+          name: "Culture et techniques avancées du numérique",
+        },
       ],
       specializedModules: [
-        { code: "M101", name: "Se situer au regard du métier et de la démarche de formation" },
-        { code: "M102", name: "Comprendre les enjeux d’un système d'information" },
+        {
+          code: "M101",
+          name: "Se situer au regard du métier et de la démarche de formation",
+        },
+        {
+          code: "M102",
+          name: "Comprendre les enjeux d’un système d'information",
+        },
         { code: "M103", name: "Concevoir un réseau informatique" },
         { code: "M104", name: "Fonctionnement du système d’exploitation" },
         { code: "M105", name: "Gérer une infrastructure virtualisée" },
@@ -94,18 +161,78 @@ const formationDetails = {
         modules: [
           { code: "EGTS202", name: "Français", hours: 115, coef: 2 },
           { code: "EGTS203", name: "Anglais technique", hours: 50, coef: 2 },
-          { code: "EGTS204", name: "Culture entrepreneuriale", hours: 45, coef: 2 },
-          { code: "EGTS205", name: "Compétences comportementales", hours: 30, coef: 2 },
-          { code: "EGTS208", name: "Entrepreneuriat-PIE 2", hours: 80, coef: 2 },
-          { code: "EGTSA206", name: "Culture et techniques avancées du numérique", hours: 30, coef: 1 },
-          { code: "M201", name: "Mise en place d’une infrastructure réseaux", hours: 120, coef: 3 },
-          { code: "M202", name: "Administration d’un environnement Windows", hours: 105, coef: 3 },
-          { code: "M203", name: "Administration d’un environnement Cloud", hours: 75, coef: 2 },
-          { code: "M204", name: "Enjeux de la technologie SDN", hours: 85, coef: 2 },
-          { code: "M205", name: "Administration d’un environnement Linux", hours: 105, coef: 3 },
-          { code: "M206", name: "Sécurité d’une infrastructure digitale", hours: 75, coef: 3 },
-          { code: "M207", name: "Gestion d’un projet d’infrastructure digitale", hours: 45, coef: 2 },
-          { code: "M208", name: "Intégration du milieu professionnel", hours: 160, coef: 2 },
+          {
+            code: "EGTS204",
+            name: "Culture entrepreneuriale",
+            hours: 45,
+            coef: 2,
+          },
+          {
+            code: "EGTS205",
+            name: "Compétences comportementales",
+            hours: 30,
+            coef: 2,
+          },
+          {
+            code: "EGTS208",
+            name: "Entrepreneuriat-PIE 2",
+            hours: 80,
+            coef: 2,
+          },
+          {
+            code: "EGTSA206",
+            name: "Culture et techniques avancées du numérique",
+            hours: 30,
+            coef: 1,
+          },
+          {
+            code: "M201",
+            name: "Mise en place d’une infrastructure réseaux",
+            hours: 120,
+            coef: 3,
+          },
+          {
+            code: "M202",
+            name: "Administration d’un environnement Windows",
+            hours: 105,
+            coef: 3,
+          },
+          {
+            code: "M203",
+            name: "Administration d’un environnement Cloud",
+            hours: 75,
+            coef: 2,
+          },
+          {
+            code: "M204",
+            name: "Enjeux de la technologie SDN",
+            hours: 85,
+            coef: 2,
+          },
+          {
+            code: "M205",
+            name: "Administration d’un environnement Linux",
+            hours: 105,
+            coef: 3,
+          },
+          {
+            code: "M206",
+            name: "Sécurité d’une infrastructure digitale",
+            hours: 75,
+            coef: 3,
+          },
+          {
+            code: "M207",
+            name: "Gestion d’un projet d’infrastructure digitale",
+            hours: 45,
+            coef: 2,
+          },
+          {
+            code: "M208",
+            name: "Intégration du milieu professionnel",
+            hours: 160,
+            coef: 2,
+          },
         ],
       },
       {
@@ -113,21 +240,66 @@ const formationDetails = {
         modules: [
           { code: "EGTS202", name: "Français", hours: 115, coef: 2 },
           { code: "EGTS203", name: "Anglais technique", hours: 50, coef: 2 },
-          { code: "EGTS204", name: "Culture entrepreneuriale", hours: 45, coef: 2 },
-          { code: "EGTS205", name: "Compétences comportementales", hours: 30, coef: 2 },
-          { code: "EGTS208", name: "Entrepreneuriat-PIE 2", hours: 80, coef: 2 },
-          { code: "EGTSA206", name: "Culture et techniques avancées du numérique", hours: 30, coef: 1 },
-          { code: "M201", name: "S’initier aux fondamentaux de la cybersécurité", hours: 75, coef: 2 },
-          { code: "M202", name: "Appliquer les méthodologies des tests d’intrusions", hours: 105, coef: 3 },
-          { code: "M203", name: "Analyser les attaques et les incidents de cybersécurité", hours: 105, coef: 3 },
+          {
+            code: "EGTS204",
+            name: "Culture entrepreneuriale",
+            hours: 45,
+            coef: 2,
+          },
+          {
+            code: "EGTS205",
+            name: "Compétences comportementales",
+            hours: 30,
+            coef: 2,
+          },
+          {
+            code: "EGTS208",
+            name: "Entrepreneuriat-PIE 2",
+            hours: 80,
+            coef: 2,
+          },
+          {
+            code: "EGTSA206",
+            name: "Culture et techniques avancées du numérique",
+            hours: 30,
+            coef: 1,
+          },
+          {
+            code: "M201",
+            name: "S’initier aux fondamentaux de la cybersécurité",
+            hours: 75,
+            coef: 2,
+          },
+          {
+            code: "M202",
+            name: "Appliquer les méthodologies des tests d’intrusions",
+            hours: 105,
+            coef: 3,
+          },
+          {
+            code: "M203",
+            name: "Analyser les attaques et les incidents de cybersécurité",
+            hours: 105,
+            coef: 3,
+          },
           {
             code: "M204",
             name: "Assurer le durcissement de la sécurité des systèmes et réseaux informatiques",
             hours: 90,
             coef: 3,
           },
-          { code: "M205", name: "Appréhender les méthodes d’investigation numérique", hours: 90, coef: 2 },
-          { code: "M206", name: "Développer des stratégies de gestion des risques", hours: 90, coef: 2 },
+          {
+            code: "M205",
+            name: "Appréhender les méthodes d’investigation numérique",
+            hours: 90,
+            coef: 2,
+          },
+          {
+            code: "M206",
+            name: "Développer des stratégies de gestion des risques",
+            hours: 90,
+            coef: 2,
+          },
         ],
       },
       {
@@ -135,21 +307,66 @@ const formationDetails = {
         modules: [
           { code: "EGTS202", name: "Français", hours: 115, coef: 2 },
           { code: "EGTS203", name: "Anglais technique", hours: 50, coef: 2 },
-          { code: "EGTS204", name: "Culture entrepreneuriale", hours: 45, coef: 2 },
-          { code: "EGTS205", name: "Compétences comportementales", hours: 30, coef: 2 },
-          { code: "EGTS208", name: "Entrepreneuriat-PIE 2", hours: 80, coef: 2 },
-          { code: "EGTSA206", name: "Culture et techniques avancées du numérique", hours: 30, coef: 1 },
-          { code: "M201", name: "Comprendre l’architecture Cloud", hours: 45, coef: 2 },
-          { code: "M202", name: "Explorer un environnement Cloud propriétaire en ligne public", hours: 45, coef: 3 },
-          { code: "M203", name: "Implémenter un environnement Cloud avec une solution libre", hours: 135, coef: 3 },
+          {
+            code: "EGTS204",
+            name: "Culture entrepreneuriale",
+            hours: 45,
+            coef: 2,
+          },
+          {
+            code: "EGTS205",
+            name: "Compétences comportementales",
+            hours: 30,
+            coef: 2,
+          },
+          {
+            code: "EGTS208",
+            name: "Entrepreneuriat-PIE 2",
+            hours: 80,
+            coef: 2,
+          },
+          {
+            code: "EGTSA206",
+            name: "Culture et techniques avancées du numérique",
+            hours: 30,
+            coef: 1,
+          },
+          {
+            code: "M201",
+            name: "Comprendre l’architecture Cloud",
+            hours: 45,
+            coef: 2,
+          },
+          {
+            code: "M202",
+            name: "Explorer un environnement Cloud propriétaire en ligne public",
+            hours: 45,
+            coef: 3,
+          },
+          {
+            code: "M203",
+            name: "Implémenter un environnement Cloud avec une solution libre",
+            hours: 135,
+            coef: 3,
+          },
           {
             code: "M204",
             name: "Administrer un environnement Cloud propriétaire en ligne public",
             hours: 105,
             coef: 3,
           },
-          { code: "M205", name: "Sécuriser un environnement Cloud propriétaire en ligne public", hours: 105, coef: 2 },
-          { code: "M206", name: "Gouverner les données dans le Cloud", hours: 60, coef: 2 },
+          {
+            code: "M205",
+            name: "Sécuriser un environnement Cloud propriétaire en ligne public",
+            hours: 105,
+            coef: 2,
+          },
+          {
+            code: "M206",
+            name: "Gouverner les données dans le Cloud",
+            hours: 60,
+            coef: 2,
+          },
           {
             code: "M207",
             name: "Établir une stratégie de maintien d’un SI dans un Cloud propriétaire en ligne public",
@@ -160,8 +377,7 @@ const formationDetails = {
       },
     ],
   },
-}
-
+};
 
 export default function FormationDetail({ formation, onNavigate }) {
   const [selectedOption, setSelectedOption] = useState(null);
@@ -177,9 +393,13 @@ export default function FormationDetail({ formation, onNavigate }) {
           transition={{ duration: 0.5 }}
           className="max-w-6xl mx-auto"
         >
-          <h1 className="text-2xl md:text-4xl font-bold text-blue-900 mb-6 md:mb-8">{details.title}</h1>
+          <h1 className="text-2xl md:text-4xl font-bold text-blue-900 mb-6 md:mb-8">
+            {details.title}
+          </h1>
 
           {/* First Year Section */}
+
+          {/* devloped by Mohammed El Gargati */}
           <motion.section
             className="bg-white rounded-xl shadow-lg p-4 md:p-8 mb-6 md:mb-8"
             initial={{ opacity: 0, y: 20 }}
@@ -204,8 +424,12 @@ export default function FormationDetail({ formation, onNavigate }) {
                     transition={{ duration: 0.5, delay: 0.1 * index }}
                     className="bg-blue-50 hover:bg-blue-100 transition-colors rounded-lg p-3 md:p-4"
                   >
-                    <p className="text-sm font-semibold text-blue-600">{module.code}</p>
-                    <p className="text-sm md:text-base text-gray-700">{module.name}</p>
+                    <p className="text-sm font-semibold text-blue-600">
+                      {module.code}
+                    </p>
+                    <p className="text-sm md:text-base text-gray-700">
+                      {module.name}
+                    </p>
                   </motion.div>
                 ))}
               </div>
@@ -225,8 +449,12 @@ export default function FormationDetail({ formation, onNavigate }) {
                     transition={{ duration: 0.5, delay: 0.1 * index }}
                     className="bg-blue-50 hover:bg-blue-100 transition-colors rounded-lg p-3 md:p-4"
                   >
-                    <p className="text-sm font-semibold text-blue-600">{module.code}</p>
-                    <p className="text-sm md:text-base text-gray-700">{module.name}</p>
+                    <p className="text-sm font-semibold text-blue-600">
+                      {module.code}
+                    </p>
+                    <p className="text-sm md:text-base text-gray-700">
+                      {module.name}
+                    </p>
                   </motion.div>
                 ))}
               </div>
@@ -234,6 +462,7 @@ export default function FormationDetail({ formation, onNavigate }) {
           </motion.section>
 
           {/* Options Section */}
+          {/* devloped by Salah Eddine Ait Zenni */}
           <motion.section
             className="bg-white rounded-xl shadow-lg p-4 md:p-8"
             initial={{ opacity: 0, y: 20 }}
@@ -245,9 +474,14 @@ export default function FormationDetail({ formation, onNavigate }) {
             </h2>
             <div className="space-y-4 md:space-y-6">
               {details.options.map((option, index) => (
-                <div key={option.title} className="border rounded-lg overflow-hidden">
+                <div
+                  key={option.title}
+                  className="border rounded-lg overflow-hidden"
+                >
                   <button
-                    onClick={() => setSelectedOption(selectedOption === index ? null : index)}
+                    onClick={() =>
+                      setSelectedOption(selectedOption === index ? null : index)
+                    }
                     className="w-full flex justify-between items-center p-3 md:p-4 bg-blue-50 hover:bg-blue-100 transition-colors"
                   >
                     <span className="text-base md:text-lg font-semibold text-blue-700">
@@ -268,13 +502,15 @@ export default function FormationDetail({ formation, onNavigate }) {
                     >
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                         {option.modules.map((module) => (
-                          <div 
-                            key={module.code} 
+                          <div
+                            key={module.code}
                             className="bg-blue-50 hover:bg-blue-100 transition-colors rounded-lg p-3 md:p-4"
                           >
                             <div className="flex flex-col space-y-2">
                               <div className="flex justify-between items-center">
-                                <p className="text-sm font-bold text-blue-700">{module.code}</p>
+                                <p className="text-sm font-bold text-blue-700">
+                                  {module.code}
+                                </p>
                                 <div className="flex items-center space-x-3">
                                   <span className="text-sm font-bold text-blue-800">
                                     {module.hours}h
@@ -284,7 +520,9 @@ export default function FormationDetail({ formation, onNavigate }) {
                                   </span>
                                 </div>
                               </div>
-                              <p className="text-sm md:text-base text-gray-700">{module.name}</p>
+                              <p className="text-sm md:text-base text-gray-700">
+                                {module.name}
+                              </p>
                             </div>
                           </div>
                         ))}
