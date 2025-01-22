@@ -2,6 +2,7 @@ import React from "react"
 import { motion } from "framer-motion"
 import { ExternalLink } from "lucide-react"
 
+// devlopped by Oussama bassor 
 const cardVariants = {
   hidden: { opacity: 0, y: 20 },
   visible: (index) => ({
@@ -62,10 +63,10 @@ const links = [
 
 export default function QuickLinks({ onNavigate }) {
   return (
-    <div className="bg-gradient-to-b from-white to-gray-50 -mt-10 sm:-mt-20 relative z-20 py-6 sm:py-8">
-      <div className="container mx-auto px-4">
+    <div className="relative z-20 py-6 -mt-10 bg-gradient-to-b from-white to-gray-50 sm:-mt-20 sm:py-8">
+      <div className="container px-4 mx-auto">
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6"
+          className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 sm:gap-6"
           initial="hidden"
           animate="visible"
         >
@@ -92,11 +93,11 @@ export default function QuickLinks({ onNavigate }) {
 
               <div className="relative p-6 sm:p-8">
                 <div className="flex items-start justify-between">
-                  <motion.div className="bg-white/10 rounded-lg p-3" variants={iconVariants}>
+                  <motion.div className="p-3 rounded-lg bg-white/10" variants={iconVariants}>
                     <img
                       src={link.image || "/placeholder.svg"}
                       alt={link.title}
-                      className="w-12 sm:w-16 h-12 sm:h-16 object-contain"
+                      className="object-contain w-12 h-12 sm:w-16 sm:h-16"
                     />
                   </motion.div>
 
@@ -108,9 +109,9 @@ export default function QuickLinks({ onNavigate }) {
                 </div>
 
                 <div className="mt-4">
-                  <h3 className="text-white text-lg sm:text-xl font-medium">{link.title}</h3>
+                  <h3 className="text-lg font-medium text-white sm:text-xl">{link.title}</h3>
                   <motion.div
-                    className="h-1 bg-white/30 mt-2 rounded"
+                    className="h-1 mt-2 rounded bg-white/30"
                     initial={{ width: 0 }}
                     whileHover={{ width: "100%" }}
                     transition={{ duration: 0.3 }}
