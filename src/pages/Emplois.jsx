@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import TopBar from '../components/TopBar';
 import Navigation from '../components/Navigation';
 import Footer from '../components/Footer';
+// Développé par : Ayoub Fattami
 
 const Emplois = ({ onNavigate }) => {
   const [selectedFiliere, setSelectedFiliere] = useState('');
