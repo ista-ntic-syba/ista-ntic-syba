@@ -10,7 +10,7 @@ const events = [
     title: "Hackathon 2025",
     description: "Join us for our annual coding competition with amazing prizes",
     date: "March 15-16, 2025",
-    image: "https://images.unsplash.com/photo-1531482615713-2afd69097998",
+    image: "evenement/photo3.jpeg",
     placeholder: "https://via.placeholder.com/500x300?text=Loading...",
   },
   {
@@ -18,7 +18,7 @@ const events = [
     title: "Career Fair",
     description: "Meet top employers and discover your future career path",
     date: "April 5, 2025",
-    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4",
+    image: "evenement/photo2.jpeg",
     placeholder: "https://via.placeholder.com/500x300?text=Loading...",
   },
   {
@@ -26,7 +26,7 @@ const events = [
     title: "Tech Workshop Series",
     description: "Learn the latest technologies from industry experts",
     date: "Every Weekend",
-    image: "https://images.unsplash.com/photo-1517048676732-d65bc937f952",
+    image: "evenement/photo1.jpeg",
     placeholder: "https://via.placeholder.com/500x300?text=Loading...",
   },
 ]
