@@ -5,34 +5,16 @@ import Footer from '../components/Footer';
 
 const events = [
   {
-    title: "Journée Portes Ouvertes",
-    date: "15 Mai 2024",
-    description: "Découvrez nos formations et rencontrez nos formateurs.",
-    image: "/images/open-day.jpg"
+    title: "Don du sang",
+    image: "/evenement/donation.png"
   },
   {
-    title: "Hackathon OFPPT",
-    date: "1-3 Juin 2024",
-    description: "Participez à notre compétition annuelle de programmation.",
-    image: "/images/hackathon.jpg"
+    title: "Workshop sur l'IA",
+    image: "/evenement/workshop-ai.jpg"
   },
   {
-    title: "Conférence sur l'IA",
-    date: "20 Juin 2024",
-    description: "Explorez les dernières avancées en intelligence artificielle.",
-    image: "/images/ai-conference.jpg"
-  },
-  {
-    title: "Forum de l'Emploi",
-    date: "10 Juillet 2024",
-    description: "Rencontrez des employeurs potentiels et découvrez des opportunités de carrière.",
-    image: "/images/job-fair.jpg"
-  },
-  {
-    title: "Atelier Design Thinking",
-    date: "5 Août 2024",
-    description: "Apprenez à résoudre des problèmes de manière créative avec le design thinking.",
-    image: "/images/design-thinking.jpg"
+    title: "Clean up day",
+    image: "/evenement/clean-up-day.jpg"
   }
 ];
 
@@ -58,18 +40,15 @@ export default function Actualite({ onNavigate }) {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <img src={event.image || "/placeholder.svg"} alt={event.title} className="w-full h-48 object-cover" />
-              <div className="p-6">
-                <h2 className="text-xl font-semibold text-[#003366] mb-2">{event.title}</h2>
-                <p className="text-gray-600 mb-4">{event.date}</p>
-                <p className="text-gray-700">{event.description}</p>
-                <motion.button
-                  className="mt-4 bg-[#003366] text-white px-4 py-2 rounded hover:bg-[#004080] transition-colors"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  En savoir plus
-                </motion.button>
+              <div className="w-full h-[500px] overflow-hidden">
+                <img 
+                  src={event.image || "/placeholder.svg"} 
+                  alt={event.title} 
+                  className="w-full h-full object-cover object-center"
+                />
+              </div>
+              <div className="p-6 text-center">
+                <h2 className="text-xl font-semibold text-[#003366]">{event.title}</h2>
               </div>
             </motion.div>
           ))}
@@ -79,4 +58,3 @@ export default function Actualite({ onNavigate }) {
     </div>
   );
 }
-

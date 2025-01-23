@@ -60,19 +60,28 @@ export default function Navigation({ onNavigate }) {
       },
     },
   }
-
   return (
-    <nav className="bg-white border-b sticky top-0 z-50">
+    <nav className="bg-white sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
           <motion.div
-            className="flex items-center"
+            className="flex items-center shadow-md rounded-lg"
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.3 }}
           >
-            <img src="/logo/ofppt.png" alt="OFPPT Logo" className="h-8 sm:h-10" />
+            <motion.img
+              src="/logo/ofppt.png"
+              alt="OFPPT Logo"
+              onClick={() => {
+                onNavigate("home")
+                window.scrollTo(0, 0)
+              }}
+              className="h-12 sm:h-14 cursor-pointer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            />
           </motion.div>
 
           {/* Desktop Menu */}

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useCallback, useMemo } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { LazyLoadImage } from "react-lazy-load-image-component"
@@ -11,7 +11,6 @@ const events = [
     description: "Join us for our annual coding competition with amazing prizes",
     date: "March 15-16, 2025",
     image: "evenement/photo3.jpeg",
-    placeholder: "https://via.placeholder.com/500x300?text=Loading...",
   },
   {
     id: 2,
@@ -19,7 +18,6 @@ const events = [
     description: "Meet top employers and discover your future career path",
     date: "April 5, 2025",
     image: "evenement/photo2.jpeg",
-    placeholder: "https://via.placeholder.com/500x300?text=Loading...",
   },
   {
     id: 3,
@@ -27,15 +25,16 @@ const events = [
     description: "Learn the latest technologies from industry experts",
     date: "Every Weekend",
     image: "evenement/photo1.jpeg",
-    placeholder: "https://via.placeholder.com/500x300?text=Loading...",
   },
 ]
 
 export default function EventHero({ onNavigate }) {
-  const [[page, direction], setPage] = useState([0, 0])
+  const [page, setPage] = useState(0)
+  const [direction, setDirection] = useState(0)
   const [isAutoPlaying, setIsAutoPlaying] = useState(true)
 
-  const slideVariants = {
+  // Memoize slide variants to prevent unnecessary re-renders
+  const slideVariants = useMemo(() => ({
     enter: (direction) => ({
       x: direction > 0 ? 1000 : -1000,
       opacity: 0,
@@ -50,17 +49,24 @@ export default function EventHero({ onNavigate }) {
       x: direction < 0 ? 1000 : -1000,
       opacity: 0,
     }),
-  }
+  }), [])
 
+  // Memoize swipe calculations
   const swipeConfidenceThreshold = 10000
-  const swipePower = (offset, velocity) => {
+  const swipePower = useCallback((offset, velocity) => {
     return Math.abs(offset) * velocity
-  }
+  }, [])
 
-  const paginate = (newDirection) => {
-    setPage([page + newDirection, newDirection])
-  }
+  // Optimize paginate function with useCallback
+  const paginate = useCallback((newDirection) => {
+    setPage((prevPage) => {
+      const newPage = prevPage + newDirection
+      setDirection(newDirection)
+      return newPage
+    })
+  }, [])
 
+  // Optimize auto-play effect
   useEffect(() => {
     if (!isAutoPlaying) return
 
@@ -69,10 +75,34 @@ export default function EventHero({ onNavigate }) {
     }, 5000)
 
     return () => clearInterval(interval)
-  }, [isAutoPlaying, page])
+  }, [isAutoPlaying, paginate])
 
-  const currentIndex = ((page % events.length) + events.length) % events.length
-  const currentEvent = events[currentIndex]
+  // Memoize current event calculation
+  const currentIndex = useMemo(() => 
+    ((page % events.length) + events.length) % events.length
+  , [page])
+  
+  const currentEvent = useMemo(() => 
+    events[currentIndex]
+  , [currentIndex])
+
+  // Prevent unnecessary re-renders of event navigation dots
+  const NavigationDots = React.memo(() => (
+    <div className="absolute inset-x-0 bottom-4 flex items-center justify-center gap-4 z-20">
+      {events.map((_, index) => (
+        <button
+          key={index}
+          onClick={() => {
+            setDirection(index > currentIndex ? 1 : -1)
+            setPage(index)
+          }}
+          className={`w-3 h-3 rounded-full transition-all duration-300 ${
+            index === currentIndex ? "bg-white w-8" : "bg-white/50"
+          }`}
+        />
+      ))}
+    </div>
+  ))
 
   return (
     <div
@@ -107,7 +137,6 @@ export default function EventHero({ onNavigate }) {
         >
           <LazyLoadImage
             src={currentEvent.image}
-            placeholderSrc={currentEvent.placeholder}
             effect="blur"
             wrapperClassName="absolute inset-0"
             className="w-full h-full object-cover"
@@ -119,6 +148,7 @@ export default function EventHero({ onNavigate }) {
           <div className="relative h-full flex items-center justify-center text-center px-4">
             <div className="max-w-4xl">
               <motion.div
+                key={currentEvent.id} // Add key to force re-render of content
                 initial={{ y: 20, opacity: 0 }}
                 animate={{ y: 0, opacity: 1 }}
                 transition={{ delay: 0.2 }}
@@ -144,18 +174,7 @@ export default function EventHero({ onNavigate }) {
         </motion.div>
       </AnimatePresence>
 
-      {/* Navigation Buttons */}
-      <div className="absolute inset-x-0 bottom-4 flex items-center justify-center gap-4 z-20">
-        {events.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setPage([index, index > currentIndex ? 1 : -1])}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentIndex ? "bg-white w-8" : "bg-white/50"
-            }`}
-          />
-        ))}
-      </div>
+      <NavigationDots />
 
       {/* Arrow Navigation */}
       <button
@@ -172,5 +191,4 @@ export default function EventHero({ onNavigate }) {
       </button>
     </div>
   )
-}
-
+} 
