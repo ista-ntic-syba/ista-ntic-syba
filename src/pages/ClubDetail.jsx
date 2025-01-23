@@ -3,6 +3,8 @@ import { motion } from "framer-motion"
 import Navigation from "../components/Navigation"
 import Footer from "../components/Footer"
 
+// Développé par : Sara DERDAK
+
 const clubDetails = {
   "Club Sportif": {
     title: "Club Sportif",
